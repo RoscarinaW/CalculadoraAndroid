@@ -17,19 +17,21 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="CA"
-            android:textSize="24sp"
+            android:layout_row="0"
             android:layout_column="0"
-            android:layout_row="0" />
+            android:onClick="borrar"
+            android:text="CA"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:text="C"
-            android:textSize="24sp"
+            android:layout_row="0"
             android:layout_column="1"
-            android:layout_row="0" />
+            android:onClick="borrar"
+            android:text="C"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/button3"
@@ -229,12 +231,13 @@
             android:id="@+id/button18"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:layout_row="4"
+            android:layout_column="1"
             android:backgroundTint="@color/white"
+            android:onClick="seleccionarNumero"
             android:text="."
             android:textColor="#673AB7"
             android:textSize="24sp"
-            android:layout_column="1"
-            android:layout_row="4"
             app:strokeColor="#673AB7"
             app:strokeWidth="2dp" />
 
@@ -247,6 +250,7 @@
             android:layout_columnSpan="2"
             android:layout_columnWeight="1"
             android:backgroundTint="#673AB7"
+            android:onClick="igual"
             android:text="="
             android:textSize="24sp" />
 

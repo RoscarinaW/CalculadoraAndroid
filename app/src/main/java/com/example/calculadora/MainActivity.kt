@@ -45,11 +45,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun cambiarOperador(b: View) {
+        calcular(b)
         val boton: Button = b as Button
         operacionActual = boton.text.toString().trim()
+        tvResul.text = formatoDecimal.format(primerNumero) + operacionActual
+        TvTempo.text =""
     }
+    
     fun calcular(b: View) {
-        if(Double.NaN!=primerNumero){
+        if(primerNumero.toString()!="NaN"){
             segundoNumero = TvTempo.text.toString().toDouble()
             TvTempo.text=""
 
@@ -71,5 +75,34 @@ class MainActivity : AppCompatActivity() {
             TvTempo.text=""
         }
         TvTempo.text = TvTempo.text.toString() + boton.text.toString()
+    }
+
+    fun  igual(b: View){
+        calcular(b)
+        tvResul.text = formatoDecimal.format(primerNumero)
+        //primerNumero = Double.NaN
+        operacionActual = ""
+    }
+
+    fun borrar(b: View) {
+        val boton: Button = b as Button
+        if(boton.text.toString().trim()=="C"){
+            if(TvTempo.text.toString().isNotEmpty()){
+                var datosActuales: CharSequence = TvTempo.text as CharSequence
+                TvTempo.text = datosActuales.subSequence(0,datosActuales.length-1)
+            }else{
+                primerNumero = Double.NaN
+                segundoNumero = Double.NaN
+                TvTempo.text = ""
+                tvResul.text = ""
+
+            }
+        }else if (boton.text.toString().trim()=="CA"){
+            primerNumero = Double.NaN
+            segundoNumero = Double.NaN
+            TvTempo.text = ""
+            tvResul.text = ""
+        }
+
     }
 }
